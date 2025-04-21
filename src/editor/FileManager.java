@@ -28,11 +28,13 @@ public class FileManager {
         if (textEditor.currentFile == null){
             JFileChooser fileChooser = new JFileChooser();
             if (fileChooser.showSaveDialog(textEditor) == JFileChooser.APPROVE_OPTION) {
-
+                File file = fileChooser.getSelectedFile();
+                textEditor.currentFile = file;
+                writeFile(file, textArea.getText(), textEditor);
             }
         }
         else{
-
+            writeFile(textEditor.currentFile, textArea.getText(), textEditor);
         }
     }
 
