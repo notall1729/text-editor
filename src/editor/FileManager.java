@@ -37,6 +37,8 @@ public class FileManager {
     }
 
     public static void newFile(TextEditor textEditor, JTextArea textArea) {
+        textEditor.currentFile = null;
+        textArea.setText("");
     }
 
     private static void writeFile(File file, String content, TextEditor textEditor){
