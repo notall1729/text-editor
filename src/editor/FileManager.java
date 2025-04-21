@@ -38,4 +38,12 @@ public class FileManager {
 
     public static void newFile(TextEditor textEditor, JTextArea textArea) {
     }
+
+    private static void writeFile(File file, String content, TextEditor textEditor){
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file))) {
+            bufferedWriter.write(content);
+        } catch (IOException e){
+            JOptionPane.showMessageDialog(textEditor,"Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }
